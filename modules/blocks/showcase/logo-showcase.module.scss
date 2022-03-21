@@ -1,0 +1,38 @@
+.logoShowcase {
+  animation: conveyerBelt 30s linear infinite forwards; //aka 2.6minutes
+  display: flex;
+  width: fit-content;
+  white-space: nowrap;
+  > * {
+    width: 200px;
+    height: 200px;
+    padding: 24px;
+
+    border-radius: 100%; //prevent 'square' shadow
+    background: var(--surface-color, #ffffff);
+    box-shadow: 0px 8px 20px rgba(30, 30, 30, 0.1);
+
+    image-rendering: optimizeSpeed;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+
+  > :nth-child(even) {
+    margin-top: 40px;
+  }
+  > :nth-child(odd) {
+    margin-bottom: 40px;
+  }
+}
+
+@keyframes conveyerBelt {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
