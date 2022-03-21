@@ -91,3 +91,16 @@ body {
     border: 1px solid #2b2b39;
   }
 }
+
+footer {
+  min-height: 200px;
+  .inner-footer {
+    column-gap: 200px;
+    .footer-list {
+      ul {
+        text-decoration: none;
+        list-style: none;
+      }
+    }
+  }
+}

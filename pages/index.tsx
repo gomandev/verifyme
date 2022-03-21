@@ -4,6 +4,7 @@ import Navbar from "@modules/blocks/navbar";
 import Masthead from "@modules/sections/masthead";
 import Showcase from "@modules/sections/showcase";
 import Services from "@modules/sections/services";
+import Footer from "@modules/sections/footer";
 
 const Home: NextPage = () => {
   return (
@@ -16,6 +17,7 @@ const Home: NextPage = () => {
       <Masthead />
       <Showcase />
       <Services />
+      <Footer />
     </>
   );
 };

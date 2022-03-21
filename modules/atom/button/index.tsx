@@ -20,13 +20,13 @@ export interface ButtonProps {
 
 const ButtonMapper: Record<ButtonVariant, string> = {
   "fill-primary":
-    "middle-btn text-accent bg-primary  hover:bg-transparent  border border-2 border-ui-purple  hover:text-ui-purple rounded",
+    "middle-btn text-accent bg-primary hover:bg-primaryDark border border-2 border-ui-purple  hover:text-accent rounded",
   "outlined-primary":
     "middle-btn text-ui-purple bg-transparent  hover:bg-ui-purple border border-2 border-ui-purple hover:text-accent  ",
   "fill-secondary":
     "middle-btn text-accent bg-main-red  hover:bg-transparent border border-2 border-main-red  hover:text-main-red",
   "outlined-secondary":
-    "middle-btn text-main-red bg-transparent  hover:bg-main-red border border-2 border-secondary hover:text-accent ",
+    "middle-btn text-main-red bg-transparent hover:bg-primary hover:bg-main-red border border-2 border-secondary hover:text-accent ",
   "fill-accent":
     "middle-btn text-accent bg-main-blue hover:bg-transparent border border-2 border-main-blue  hover:text-main-blue",
   "outlined-accent":
