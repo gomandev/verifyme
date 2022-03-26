@@ -9,16 +9,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "^1.8.0",
     "@teambit/community.ui.logo-showcase": "^1.95.10",
     "classnames": "2.3.1",
     "clsx": "^1.1.1",
     "core-js": "^3.0.0",
+    "firebase": "^9.6.10",
     "gsap": "^3.9.1",
     "next": "12.1.0",
     "next-transpile-modules": "^9.0.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-icons": "^4.3.1"
+    "react-firebase-hooks": "^5.0.3",
+    "react-icons": "^4.3.1",
+    "react-redux": "^7.2.6"
   },
   "devDependencies": {
     "@types/node": "17.0.18",

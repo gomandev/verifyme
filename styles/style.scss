@@ -104,3 +104,67 @@ footer {
     }
   }
 }
+
+.input-wrapper {
+  position: relative;
+}
+
+.login {
+  .right-login {
+    background-color: #2b2b39;
+    height: 100%;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 30%;
+      left: 10%;
+      background-image: url("/login.svg");
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      width: 600px;
+      height: 400px;
+    }
+  }
+}
+
+.register {
+  .right-register {
+    background-color: #2b2b39;
+    height: 100%;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 7%;
+      left: 10%;
+      background-image: url("/register.svg");
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      width: 600px;
+      height: 700px;
+    }
+  }
+}
+
+.onboard {
+  .right-onboard {
+    background-color: #2b2b39;
+    height: 100%;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 20%;
+      left: 10%;
+      background-image: url("/onboard.svg");
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: cover;
+      width: 600px;
+      height: 400px;
+    }
+  }
+}
