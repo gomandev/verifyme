@@ -9,10 +9,10 @@ import { Logo } from "@modules/atom/logo";
 
 const Footer = () => {
   return (
-    <footer className="mt-10 p-10">
+    <footer className="mt-10 py-5 xl:p-10 lg:p-10">
       <div className="site-container">
-        <div className="flex flex-col justify-center items-center h-full w-full">
-          <div className="inner-footer flex grid grid-cols-3">
+        <div className="flex flex-col xl:justify-center xl:items-center lg:justify-center lg:items-center h-full w-full">
+          <div className="inner-footer flex grid grid-cols-1 xl:grid-cols-3 lg:grid-cols-3">
             <div className="footer-list">
               <h4 className="text-secondary font-bold text-extra mb-5">
                 Follow us

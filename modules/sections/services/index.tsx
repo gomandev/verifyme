@@ -19,13 +19,13 @@ const Services = () => {
   return (
     <div className="site-container">
       <h2
-        className="text-5xl font-medium text-secondary mt-12"
+        className="service-text text-5xl font-medium text-secondary mt-12"
         style={{ lineHeight: "40px", fontSize: "35px" }}
       >
         In The Box
       </h2>
       <div className="mini-liner my-5"></div>
-      <div className="service grid grid-cols-2 w-full mt-10">
+      <div className="service grid grid-cols-1 xl:grid-cols-2 lg:grid-cols-2 w-full mt-10">
         <div className="service-left grid grid-cols-4 gap-3 w-full h-3/6">
           <div
             onClick={() => setServices("portfolio")}
@@ -34,7 +34,9 @@ const Services = () => {
             }`}
           >
             <FiImage size={25} color="#2B2B39" className="mb-4" />
-            <h4 className="text-secondary font-bold text-xl">Portfolio</h4>
+            <h4 className="text-secondary font-bold lg:text-sixteen xl:text-sixteen text-ultraLg">
+              Portfolio
+            </h4>
           </div>
           <div
             onClick={() => setServices("articles")}
@@ -43,7 +45,9 @@ const Services = () => {
             }`}
           >
             <FiBookmark size={25} color="#2B2B39" className="mb-4" />
-            <h4 className="text-secondary font-bold text-xl">Articles</h4>
+            <h4 className="text-secondary font-bold lg:text-sixteen xl:text-sixteen text-ultraLg">
+              Articles
+            </h4>
           </div>
           <div
             onClick={() => setServices("skills")}
@@ -52,7 +56,9 @@ const Services = () => {
             }`}
           >
             <FiTool size={25} color="#2B2B39" className="mb-4" />
-            <h4 className="text-secondary font-bold text-xl">Skills</h4>
+            <h4 className="text-secondary font-bold lg:text-sixteen xl:text-sixteen text-ultraLg">
+              Skills
+            </h4>
           </div>
           <div
             onClick={() => setServices("testmonials")}
@@ -61,7 +67,9 @@ const Services = () => {
             }`}
           >
             <FiThumbsUp size={25} color="#2B2B39" className="mb-4" />
-            <h4 className="text-secondary font-bold text-xl">Testmonials</h4>
+            <h4 className="text-secondary font-bold lg:text-sixteen xl:text-sixteen text-ultraLg">
+              Testmonials
+            </h4>
           </div>
           <div
             onClick={() => setServices("profile")}
@@ -70,7 +78,9 @@ const Services = () => {
             }`}
           >
             <FiUserCheck size={25} color="#2B2B39" className="mb-4" />
-            <h4 className="text-secondary font-bold text-xl">Profile</h4>
+            <h4 className="text-secondary font-bold lg:text-sixteen xl:text-sixteen text-ultraLg">
+              Profile
+            </h4>
           </div>
           <div
             onClick={() => setServices("stackoverflow")}
@@ -79,7 +89,9 @@ const Services = () => {
             }`}
           >
             <FaStackOverflow size={25} color="#2B2B39" className="mb-4" />
-            <h4 className="text-secondary font-bold text-xl">Stackoverflow</h4>
+            <h4 className="text-secondary font-bold lg:text-sixteen xl:text-sixteen text-ultraLg">
+              Stackoverflow
+            </h4>
           </div>
           <div
             onClick={() => setServices("repositories")}
@@ -88,7 +100,9 @@ const Services = () => {
             }`}
           >
             <FiGithub size={25} color="#2B2B39" className="mb-4" />
-            <h4 className="text-secondary font-bold text-xl">Repositories</h4>
+            <h4 className="text-secondary font-bold lg:text-sixteen xl:text-sixteen text-ultraLg">
+              Repositories
+            </h4>
           </div>
           <div
             onClick={() => setServices("social")}
@@ -97,7 +111,9 @@ const Services = () => {
             }`}
           >
             <FiUsers size={25} color="#2B2B39" className="mb-4" />
-            <h4 className="text-secondary font-bold text-xl">Social</h4>
+            <h4 className="text-secondary font-bold lg:text-sixteen xl:text-sixteen text-ultraLg">
+              Social
+            </h4>
           </div>
           <div
             onClick={() => setServices("new")}
@@ -106,10 +122,12 @@ const Services = () => {
             }`}
           >
             <FiPlus size={45} color="#2B2B39" className="mb-4" />
-            <h4 className="text-secondary font-bold text-xl">Add New</h4>
+            <h4 className="text-secondary font-bold lg:text-sixteen xl:text-sixteen text-ultraLg">
+              Add New
+            </h4>
           </div>
         </div>
-        <div className="service-right w-full">
+        <div className="service-right w-full mt-5 lg:mt-0 xl:mt-0">
           {(() => {
             switch (services) {
               case "portfolio":
@@ -120,7 +138,7 @@ const Services = () => {
                       Portfolio
                     </h4>
                     <p
-                      className="text-typoGray text-sm font-semibold leading-6"
+                      className="text-typoGray text-sm font-semibold leading-6 showcase-text"
                       style={{ fontSize: "15px", width: "528px" }}
                     >
                       Lorem ipsum dolor sit amet consectetur, adipisicing elit.

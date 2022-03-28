@@ -12,7 +12,7 @@ const Masthead = () => {
           <div className="masthead-left relative">
             <div className="mini-seperator"></div>
             <h2
-              className="text-5xl font-medium text-secondary mt-12"
+              className="text-5xl masthead-text font-medium text-secondary mt-12"
               style={{ lineHeight: "60px", fontSize: "50px" }}
             >
               Showcase Yourself

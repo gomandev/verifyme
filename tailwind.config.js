@@ -26,6 +26,8 @@ module.exports = {
       fifty: "50px",
       twosix: "26px",
       ultra: "9px",
+      ultraLg: "10px",
+      ultraXl: "14px",
       extra: "20px",
       sixteen: "16px",
     },

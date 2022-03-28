@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+$purple: #9c27b0;
+$black: #000;
+$white: #fff;
+$dark: #2b2b39;
+
 html,
 body {
   padding: 0;
@@ -49,12 +54,12 @@ body {
       width: 150px;
       height: 100px;
       &.active {
-        background-color: #9c27b0 !important;
+        background-color: $purple !important;
         h4 {
-          color: #ffffff !important;
+          color: $white !important;
         }
         svg {
-          color: #ffffff !important;
+          color: $white !important;
         }
       }
     }
@@ -71,7 +76,7 @@ body {
 .mini-liner {
   width: 70px;
   height: 2px;
-  background-color: #9c27b0;
+  background-color: $purple;
 }
 
 .form-wrapper {
@@ -81,14 +86,14 @@ body {
     height: 40px;
     border-radius: 4px;
     background-color: transparent;
-    border: 1px solid #2b2b39;
+    border: 1px solid $dark;
   }
   textarea {
     width: 100%;
     height: 200px;
     border-radius: 4px;
     background-color: transparent;
-    border: 1px solid #2b2b39;
+    border: 1px solid $dark;
   }
 }
 
@@ -111,7 +116,7 @@ footer {
 
 .login {
   .right-login {
-    background-color: #2b2b39;
+    background-color: $dark;
     height: 100%;
     position: relative;
     &::after {
@@ -131,7 +136,7 @@ footer {
 
 .register {
   .right-register {
-    background-color: #2b2b39;
+    background-color: $dark;
     height: 100%;
     position: relative;
     &::after {
@@ -151,7 +156,7 @@ footer {
 
 .onboard {
   .right-onboard {
-    background-color: #2b2b39;
+    background-color: $dark;
     height: 100%;
     position: relative;
     &::after {
@@ -174,7 +179,7 @@ footer {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    border: 1px dotted #2b2b39;
+    border: 1px dotted $dark;
   }
   .divider {
     height: 150px;
@@ -185,9 +190,9 @@ footer {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    background-color: #9c27b0;
+    background-color: $purple;
     p {
-      color: #ffffff;
+      color: $white;
       font-size: 60px;
       font-weight: 600;
     }
@@ -197,4 +202,62 @@ footer {
 .skill-chip {
   width: 100px;
   height: 35px;
+}
+
+// responsive
+
+@media screen and (max-width: 540px) {
+  .site-container {
+    padding: 0 20px;
+  }
+  .middle-btn {
+    width: 150px;
+    font-size: 14px;
+  }
+  .inner-navbar {
+    padding: 0 20px;
+  }
+  .masthead-text {
+    font-size: 30px !important;
+    line-height: 40px !important;
+  }
+  .service-text {
+    font-size: 20px !important;
+    line-height: 30px !important;
+  }
+  .service-card {
+    width: 80px !important;
+    height: 100px !important;
+  }
+  .showcase-text {
+    width: 100% !important;
+  }
+}
+
+@media screen and (min-width: 940px) {
+  .main-container {
+    max-width: 75%;
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  .main-container {
+    max-width: 85%;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 1140px) {
+  .main-container {
+    max-width: 60%;
+    margin: auto;
+  }
+}
+
+@media screen and (min-width: 1340px) {
+  .main-container {
+    max-width: 50%;
+    margin: auto;
+  }
 }
