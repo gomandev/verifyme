@@ -97,7 +97,7 @@ export const signInGoogle: any = createAsyncThunk(
       }
     } catch (err) {
       console.error(err);
-      thunkAPI.rejectWithValue(err.message);
+      thunkAPI.rejectWithValue(err);
     }
   }
 );
@@ -121,7 +121,7 @@ export const signInGithub: any = createAsyncThunk(
       }
     } catch (err) {
       console.error(err);
-      thunkAPI.rejectWithValue(err.message);
+      thunkAPI.rejectWithValue(err);
     }
   }
 );
@@ -133,7 +133,7 @@ export const loginUser: any = createAsyncThunk(
       await signInWithEmailAndPassword(auth, email, password);
     } catch (err) {
       console.error(err);
-      thunkAPI.rejectWithValue(err.message);
+      thunkAPI.rejectWithValue(err);
     }
   }
 );
@@ -153,7 +153,7 @@ export const registerUser: any = createAsyncThunk(
       });
     } catch (err) {
       console.error(err);
-      thunkAPI.rejectWithValue(err.message);
+      thunkAPI.rejectWithValue(err);
     }
   }
 );
@@ -166,7 +166,7 @@ export const forgotUser: any = createAsyncThunk(
       alert("Password reset link sent!");
     } catch (err) {
       console.error(err);
-      thunkAPI.rejectWithValue(err.message);
+      thunkAPI.rejectWithValue(err);
     }
   }
 );
@@ -210,7 +210,6 @@ export const userSlice: any = createSlice({
     [signInGoogle.rejected]: (state, { payload }) => {
       state.isFetching = false;
       state.isError = true;
-      state.errorMessage = payload.message;
     },
     [signInGithub.fulfilled]: (state, { payload }) => {
       state.isFetching = false;
@@ -222,7 +221,6 @@ export const userSlice: any = createSlice({
     [signInGithub.rejected]: (state, { payload }) => {
       state.isFetching = false;
       state.isError = true;
-      state.errorMessage = payload.message;
     },
     [loginUser.fulfilled]: (state, { payload }) => {
       state.isFetching = false;
@@ -232,7 +230,6 @@ export const userSlice: any = createSlice({
     [loginUser.rejected]: (state, { payload }) => {
       state.isFetching = false;
       state.isError = true;
-      state.errorMessage = payload.message;
     },
     [loginUser.pending]: (state) => {
       state.isFetching = true;
@@ -246,7 +243,6 @@ export const userSlice: any = createSlice({
     [forgotUser.rejected]: (state, { payload }) => {
       state.isFetching = false;
       state.isError = true;
-      state.errorMessage = payload.message;
     },
     [forgotUser.pending]: (state) => {
       state.isFetching = true;
