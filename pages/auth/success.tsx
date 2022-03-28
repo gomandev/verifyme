@@ -22,7 +22,7 @@ const Success = () => {
           </Button>
           <Divider className="mx-2" />
           <Button onClick={() => null} variant="fill-primary">
-            Let's go!
+            Let&apos;s go!
           </Button>
         </div>
       </div>

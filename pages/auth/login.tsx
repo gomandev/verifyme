@@ -109,7 +109,8 @@ const Login: NextPage = () => {
           </Button>
           <div className="already w-full flex justify-center mt-3">
             <p className="text-secondary text-sixteen">
-              Don't have an account? <Link href="/auth/register">Signup.</Link>
+              Don&apos;t have an account?{" "}
+              <Link href="/auth/register">Signup.</Link>
             </p>
           </div>
         </div>
