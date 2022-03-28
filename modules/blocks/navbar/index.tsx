@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <div className="site-navbar">
       <div className="inner-navbar flex justify-between items-center h-full">
-        {/* <Image src="/loveicon.svg" alt="Vercel Navbar" width={41} height={55} /> */}
+        {/* <Image src="/loveicon.svg" alt="Vercel Navbar" width={41} height={55} /> ***/}
         <div className="flex">
           <Logo />
           <div className="site-menu lg:ml-11 xl:ml-11 ml-10">
