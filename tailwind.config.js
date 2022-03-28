@@ -44,7 +44,7 @@ module.exports = {
       accent: "#ffffff",
       "extra-light": "#5a5a5a",
       grayMid: "#828694",
-      gray: "#f5f5f5",
+      gray: "#f2f3f5",
       secondary: "#2B2B39",
     },
     borderRadius: {

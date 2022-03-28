@@ -1,8 +1,10 @@
 import { Button } from "@modules/atom/button";
 import { Logo } from "@modules/atom/logo";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 const Navbar = () => {
+  const history = useRouter();
   return (
     <div className="site-navbar">
       <div className="inner-navbar flex justify-between items-center h-full">
@@ -24,7 +26,10 @@ const Navbar = () => {
           </div>
         </div>
         <div className="flex">
-          <Button onClick={() => null} variant="fill-primary">
+          <Button
+            onClick={() => history.push("/auth/login")}
+            variant="fill-primary"
+          >
             Login
           </Button>
         </div>

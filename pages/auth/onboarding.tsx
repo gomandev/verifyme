@@ -14,7 +14,13 @@ import { Button } from "@modules/atom/button";
 import { Divider } from "@modules/atom/divider";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { loginUser } from "store/ducks/auth";
+import {
+  addToInfo,
+  addToSkills,
+  addToSocial,
+  loginUser,
+  userSelector,
+} from "store/ducks/auth";
 import Info from "@modules/blocks/info";
 import Skills from "@modules/blocks/skills";
 import Social from "@modules/blocks/social";
@@ -25,11 +31,51 @@ import { useRouter } from "next/router";
 const Onboarding: NextPage = () => {
   const [step, setStep] = useState<number>(1);
   const [confirm, setConfirm] = useState<boolean>(false);
+
+  // Info
+  const { isFetching, isSuccess, isError, errorMessage, profile } =
+    useSelector(userSelector);
+  const [title, setTitle] = useState<string>("");
+  const [about, setAbout] = useState<string>("");
+  const dispatch = useDispatch();
+  const onTitle = ({ target: { value } }: { target: { value: string } }) => {
+    setTitle(value);
+    dispatch(addToInfo({ title, about }));
+  };
+  const onAbout = ({ target: { value } }: { target: { value: string } }) => {
+    setAbout(value);
+    dispatch(addToInfo({ title, about }));
+  };
+
+  // SKILLS
+  const [text, setText] = useState<string>("");
+  const [skillsArray, setSkillsArray] = useState<Array<string>>([]);
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      const newArray = [...skillsArray];
+      newArray.push(text);
+      setSkillsArray(newArray);
+      setText("");
+    }
+  };
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setText(e.target.value);
+  };
+  const handleDelete = (index: number) => {
+    const newArray = [...skillsArray];
+    newArray.splice(index, 1);
+    setSkillsArray(newArray);
+  };
+  // social
+  const [linkedin, setLinkedin] = useState<string>("");
+  const [github, setGithub] = useState<string>("");
+  const [twitter, setTwitter] = useState<string>("");
+
   // const newObj = {
   //   email,
   //   password,
   // };
-  // const dispatch = useDispatch();
+
   // const handleSubmit = () => {
   //   dispatch(loginUser(newObj));
   // };
@@ -41,7 +87,19 @@ const Onboarding: NextPage = () => {
   };
   const history = useRouter();
   const handleProfile = () => {
-    history.push("/dashboard");
+    const newObject1 = {
+      title,
+      about,
+    };
+    const newObject2 = {
+      linkedin,
+      github,
+      twitter,
+    };
+    dispatch(addToInfo(newObject1));
+    dispatch(addToSocial(newObject2));
+    dispatch(addToSkills(skillsArray));
+    history.push("/auth/success");
   };
   // useEffect(() => {
 
@@ -57,18 +115,52 @@ const Onboarding: NextPage = () => {
           {(() => {
             switch (step) {
               case 1:
-                return <Info />;
+                return (
+                  <Info
+                    onAbout={onAbout}
+                    onTitle={onTitle}
+                    title={title}
+                    about={about}
+                  />
+                );
               case 2:
-                return <Skills />;
+                return (
+                  <Skills
+                    handleDelete={handleDelete}
+                    handleChange={handleChange}
+                    handleKeyPress={handleKeyPress}
+                    skillsArray={skillsArray}
+                    text={text}
+                  />
+                );
               case 3:
-                return <Social />;
+                return (
+                  <Social
+                    github={github}
+                    linkedin={linkedin}
+                    twitter={twitter}
+                    setGithub={setGithub}
+                    setLinkedin={setLinkedin}
+                    setTwitter={setTwitter}
+                  />
+                );
               case 4:
-                return <Confirm />;
+                return (
+                  <Confirm
+                    handleDelete={handleDelete}
+                    title={title}
+                    about={about}
+                    skills={skillsArray}
+                    twitter={twitter}
+                    linkedin={linkedin}
+                    github={github}
+                  />
+                );
               default:
                 break;
             }
           })()}
-          <div className="flex w-full">
+          <div className="flex w-full mt-5">
             {step > 1 && (
               <Button
                 variant="outlined-secondary"

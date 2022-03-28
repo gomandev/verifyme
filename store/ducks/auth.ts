@@ -46,6 +46,17 @@ export type UserState = {
   isError: boolean;
   errorMessage: string;
   isLoggedIn: boolean;
+  profile: {
+    title: string;
+    about: string;
+    photo: string;
+    skills: Array<string>;
+    social: {
+      github: string;
+      twitter: string;
+      linkedin: string;
+    };
+  };
 };
 
 const initialState: UserState = {
@@ -54,6 +65,17 @@ const initialState: UserState = {
   isError: false,
   errorMessage: "",
   isLoggedIn: false,
+  profile: {
+    title: "",
+    about: "",
+    photo: "",
+    skills: [],
+    social: {
+      github: "",
+      twitter: "",
+      linkedin: "",
+    },
+  },
 };
 
 export const signInGoogle: any = createAsyncThunk(
@@ -164,6 +186,18 @@ export const userSlice: any = createSlice({
 
       return state;
     },
+    addToInfo: (state, { payload }) => {
+      state.profile.title = payload.title;
+      state.profile.about = payload.about;
+    },
+    addToSkills: (state, { payload }) => {
+      state.profile.skills = payload;
+    },
+    addToSocial: (state, { payload }) => {
+      state.profile.social.github = payload.github;
+      state.profile.social.twitter = payload.twitter;
+      state.profile.social.linkedin = payload.linkedin;
+    },
   },
   extraReducers: {
     [signInGoogle.fulfilled]: (state, { payload }) => {
@@ -220,6 +254,7 @@ export const userSlice: any = createSlice({
   },
 });
 
-export const { clearState } = userSlice.actions;
+export const { clearState, addToInfo, addToSkills, addToSocial } =
+  userSlice.actions;
 
 export const userSelector = (state: any) => state.user;

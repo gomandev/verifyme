@@ -22,17 +22,17 @@ export interface ButtonProps {
 
 const ButtonMapper: Record<ButtonVariant, string> = {
   "fill-primary":
-    "middle-btn text-accent bg-primary hover:bg-primaryDark border border-2 hover:text-accent rounded",
+    "middle-btn text-accent bg-primary hover:bg-primaryDark border border hover:text-accent rounded",
   "outlined-primary":
-    "middle-btn text-ui-purple bg-transparent  hover:bg-ui-purple border border-2 border-ui-purple hover:text-accent  ",
+    "middle-btn text-ui-purple bg-transparent  hover:bg-ui-purple border border border-ui-purple hover:text-accent  ",
   "fill-secondary":
     "middle-btn text-accent bg-secondary  hover:bg-transparent text-accent hover:text-main-red",
   "outlined-secondary":
-    "middle-btn text-main-red bg-transparent hover:bg-primary hover:bg-main-red border border-2 border-secondary hover:text-accent ",
+    "middle-btn text-main-red bg-transparent hover:bg-primary hover:bg-main-red border border border-secondary hover:text-accent ",
   "fill-accent":
     "middle-btn text-secondary bg-accent hover:bg-transparent hover:text-main-blue",
   "outlined-accent":
-    "middle-btn text-main-blue bg-transparent  hover:bg-main-blue border border-2 border-main-blue hover:text-accent ",
+    "middle-btn text-main-blue bg-transparent  hover:bg-main-blue border border border-main-blue hover:text-accent ",
 };
 
 export const Button: FC<ButtonProps> = ({

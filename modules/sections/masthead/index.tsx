@@ -1,8 +1,10 @@
 import { Button } from "@modules/atom/button";
 import React from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 const Masthead = () => {
+  const history = useRouter();
   return (
     <>
       <div className="site-container">
@@ -25,7 +27,10 @@ const Masthead = () => {
               extra fees and fake reviews anymore.
             </p>
             <div className="flex mt-11">
-              <Button onClick={() => null} variant="fill-primary">
+              <Button
+                onClick={() => history.push("/auth/register")}
+                variant="fill-primary"
+              >
                 Start Showcase
               </Button>
               <Button

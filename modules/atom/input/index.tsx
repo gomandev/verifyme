@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { ReactNode, useState } from "react";
+import React, { ReactNode, useState } from "react";
 import { FC, memo } from "react";
 import { FiEyeOff, FiEye } from "react-icons/fi";
 
@@ -8,6 +8,7 @@ type variant = "primary" | "secondary" | "dark" | "white";
 
 export interface InputProps {
   onChange: (e: any) => void;
+  onKeypress?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   onFocus?: (e: any) => void | undefined;
   value?: string;
   placeholder?: string;
@@ -17,6 +18,11 @@ export interface InputProps {
   name?: string;
   icon?: ReactNode;
   transparent?: boolean;
+  line?: boolean;
+  style?: {};
+  plain?: boolean;
+  ref?: any;
+  disabled?: boolean;
 }
 
 const VariantMapper: Record<variant, string> = {
@@ -35,7 +41,7 @@ const widthMapper = {
 const Component: FC<InputProps> = ({
   value,
   onChange,
-  placeholder = "Enter text",
+  placeholder,
   type = "text",
   onFocus = null,
   variant = "primary",
@@ -43,17 +49,26 @@ const Component: FC<InputProps> = ({
   name,
   icon,
   transparent,
+  line,
+  style,
+  plain,
+  onKeypress,
+  ref,
+  disabled,
 }) => {
   const [showPassword, setShowPassword] = useState(false);
   return (
     <div
       className={clsx(
         VariantMapper[variant],
-        "flex items-center input-wrapper outline-none focus:ring-2 focus:ring-ui-purple rounded px-4 text-secondary text-extra border border-1 border-secondary",
+        "flex items-center input-wrapper outline-none rounded px-4 text-secondary text-extra",
         width ? widthMapper[width] : "w-full",
-        transparent ? "bg-transparent" : "bg-accent"
+        transparent ? "bg-transparent" : "bg-accent",
+        line
+          ? "border-b border-secondary rounded-none"
+          : "border border-1 border-secondary"
       )}
-      style={{ height: "50px" }}
+      style={{ height: "50px", ...style }}
     >
       {icon && <div className=" mr-4">{icon}</div>}
       <input
@@ -62,7 +77,11 @@ const Component: FC<InputProps> = ({
         name={name ?? "field"}
         value={value}
         onChange={onChange}
+        autoComplete={plain ? "off" : "on"}
         className="outline-none w-full"
+        onKeyPress={onKeypress}
+        ref={ref}
+        disabled={disabled}
       />
       {(() => {
         if (type === "password") {
