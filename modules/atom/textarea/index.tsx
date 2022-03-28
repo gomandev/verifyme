@@ -50,8 +50,7 @@ const Component: FC<InputProps> = ({
     <textarea
       className={clsx(
         VariantMapper[variant],
-        "flex items-center input-wrapper outline-none rounded px-4 text-secondary text-extra border border-1 border-secondary",
-        width ? widthMapper[width] : "w-full",
+        "flex items-center input-wrapper outline-none rounded px-4 text-secondary text-extra border border-1 border-secondary w-full",
         transparent ? "bg-transparent" : "bg-accent"
       )}
       placeholder={placeholder}

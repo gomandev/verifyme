@@ -61,8 +61,7 @@ const Component: FC<InputProps> = ({
     <div
       className={clsx(
         VariantMapper[variant],
-        "flex items-center input-wrapper outline-none rounded px-4 text-secondary text-extra",
-        width ? widthMapper[width] : "w-full",
+        "flex items-center input-wrapper outline-none rounded px-4 text-secondary text-extra w-full",
         transparent ? "bg-transparent" : "bg-accent",
         line
           ? "border-b border-secondary rounded-none"
