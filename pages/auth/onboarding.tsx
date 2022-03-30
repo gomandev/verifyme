@@ -111,7 +111,7 @@ const Onboarding: NextPage = () => {
         <meta name="description" content="Verify Me Login" />
       </Head>
       <div className="flex h-screen onboard">
-        <div className="left-onboard px-36 py-14 w-1/2 h-full flex flex-col justify-center">
+        <div className="left-onboard lg:px-36 xl:px-36 lg:py-14 xl:py-14 lg lg:w-1/2 xl:w-1/2 px-5 h-full flex flex-col justify-center">
           {(() => {
             switch (step) {
               case 1:
@@ -184,7 +184,7 @@ const Onboarding: NextPage = () => {
             </Button>
           </div>
         </div>
-        <div className="right-onboard w-1/2"></div>
+        <div className="right-onboard lg:block xl:block hidden xl:w-1/2 lg:w-1/2"></div>
       </div>
     </>
   );
