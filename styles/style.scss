@@ -234,6 +234,15 @@ footer {
   }
 }
 
+.burger-menu {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: #fff;
+  z-index: 2;
+}
+
 @media screen and (min-width: 940px) {
   .main-container {
     max-width: 75%;
