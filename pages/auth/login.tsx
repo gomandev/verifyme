@@ -53,7 +53,7 @@ const Login: NextPage = () => {
         <meta name="description" content="Verify Me Login" />
       </Head>
       <div className="flex h-screen login">
-        <div className="left-login lg:px-36 xl:px-36 py-14 lg:w-1/2 xl:w-1/2 px-5 h-full flex flex-col justify-center">
+        <div className="left-login lg:px-36 xl:px-36 lg:py-14 xl:py-14 lg lg:w-1/2 xl:w-1/2 px-5 h-full flex flex-col justify-center">
           <div className="login-header flex justify-center w-full mb-5">
             <Logo />
           </div>
@@ -114,7 +114,7 @@ const Login: NextPage = () => {
             </p>
           </div>
         </div>
-        <div className="right-login lg:block xl:block hidden w-1/2"></div>
+        <div className="right-login lg:block xl:block hidden xl:w-1/2 lg:w-1/2"></div>
       </div>
     </>
   );
