@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import {
   FiImage,
   FiBookmark,
@@ -12,10 +12,20 @@ import {
 
 import { FaStackOverflow } from "react-icons/fa";
 import { Button } from "@modules/atom/button";
+import { gsap } from "gsap";
 
 const Services = () => {
   const [services, setServices] = useState("portfolio");
-  useEffect(() => {}, []);
+  const boxRef = useRef<HTMLDivElement>(null);
+  const fadeDirection = { y: 50 };
+  useEffect(() => {
+    gsap.from(boxRef.current, 1, {
+      // ...fadeDirection,
+      autoAlpha: 0,
+      delay: "0.2",
+    });
+  }, [services]);
+
   return (
     <div className="site-container">
       <h2
@@ -132,7 +142,7 @@ const Services = () => {
             switch (services) {
               case "portfolio":
                 return (
-                  <div className="w-full">
+                  <div className="w-full" ref={boxRef}>
                     <div className="service-thumb rounded-six mb-5"></div>
                     <h4 className="text-secondary font-bold text-xl mb-5">
                       Portfolio
@@ -149,7 +159,7 @@ const Services = () => {
                 );
               case "articles":
                 return (
-                  <div className="w-full">
+                  <div className="w-full" ref={boxRef}>
                     <div className="service-thumb rounded-six mb-5"></div>
                     <h4 className="text-secondary font-bold text-xl mb-5">
                       Articles
@@ -166,7 +176,7 @@ const Services = () => {
                 );
               case "skills":
                 return (
-                  <div className="w-full">
+                  <div className="w-full" ref={boxRef}>
                     <div className="service-thumb rounded-six mb-5"></div>
                     <h4 className="text-secondary font-bold text-xl mb-5">
                       Skills
@@ -183,7 +193,7 @@ const Services = () => {
                 );
               case "testmonials":
                 return (
-                  <div className="w-full">
+                  <div className="w-full" ref={boxRef}>
                     <div className="service-thumb rounded-six mb-5"></div>
                     <h4 className="text-secondary font-bold text-xl mb-5">
                       Testmonials
@@ -200,7 +210,7 @@ const Services = () => {
                 );
               case "profile":
                 return (
-                  <div className="w-full">
+                  <div className="w-full" ref={boxRef}>
                     <div className="service-thumb rounded-six mb-5"></div>
                     <h4 className="text-secondary font-bold text-xl mb-5">
                       Profile
@@ -217,7 +227,7 @@ const Services = () => {
                 );
               case "stackoverflow":
                 return (
-                  <div className="w-full">
+                  <div className="w-full" ref={boxRef}>
                     <div className="service-thumb rounded-six mb-5"></div>
                     <h4 className="text-secondary font-bold text-xl mb-5">
                       Stackoverflow
@@ -234,7 +244,7 @@ const Services = () => {
                 );
               case "repositories":
                 return (
-                  <div className="w-full">
+                  <div className="w-full" ref={boxRef}>
                     <div className="service-thumb rounded-six mb-5"></div>
                     <h4 className="text-secondary font-bold text-xl mb-5">
                       Repositories
@@ -251,7 +261,7 @@ const Services = () => {
                 );
               case "social":
                 return (
-                  <div className="w-full">
+                  <div className="w-full" ref={boxRef}>
                     <div className="service-thumb rounded-six mb-5"></div>
                     <h4 className="text-secondary font-bold text-xl mb-5">
                       Social
@@ -268,7 +278,7 @@ const Services = () => {
                 );
               case "new":
                 return (
-                  <div className="w-full">
+                  <div className="w-full" ref={boxRef}>
                     <h2
                       className="text-5xl font-medium text-secondary mb-5"
                       style={{ lineHeight: "30px", fontSize: "25px" }}

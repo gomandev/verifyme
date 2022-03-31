@@ -12,7 +12,7 @@ import { InputComponent } from "@modules/atom/input";
 import { Logo } from "@modules/atom/logo";
 import { Button } from "@modules/atom/button";
 import { Divider } from "@modules/atom/divider";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addToInfo,
@@ -27,11 +27,21 @@ import Social from "@modules/blocks/social";
 import { useEffect } from "react";
 import Confirm from "@modules/blocks/confirm";
 import { useRouter } from "next/router";
+import { gsap } from "gsap";
 
 const Onboarding: NextPage = () => {
   const [step, setStep] = useState<number>(1);
   const [confirm, setConfirm] = useState<boolean>(false);
-
+  const boxRef = useRef<HTMLDivElement>(null);
+  const fadeDirection = { y: 50 };
+  useEffect(() => {
+    gsap.from(boxRef.current, 1, {
+      ...fadeDirection,
+      autoAlpha: 0,
+      delay: "0.2",
+    });
+    console.log("render");
+  }, [step]);
   // Info
   const { isFetching, isSuccess, isError, errorMessage, profile } =
     useSelector(userSelector);
@@ -112,54 +122,56 @@ const Onboarding: NextPage = () => {
       </Head>
       <div className="flex h-screen onboard">
         <div className="left-onboard lg:px-36 xl:px-36 lg:py-14 xl:py-14 lg lg:w-1/2 xl:w-1/2 px-5 h-full flex flex-col justify-center">
-          {(() => {
-            switch (step) {
-              case 1:
-                return (
-                  <Info
-                    onAbout={onAbout}
-                    onTitle={onTitle}
-                    title={title}
-                    about={about}
-                  />
-                );
-              case 2:
-                return (
-                  <Skills
-                    handleDelete={handleDelete}
-                    handleChange={handleChange}
-                    handleKeyPress={handleKeyPress}
-                    skillsArray={skillsArray}
-                    text={text}
-                  />
-                );
-              case 3:
-                return (
-                  <Social
-                    github={github}
-                    linkedin={linkedin}
-                    twitter={twitter}
-                    setGithub={setGithub}
-                    setLinkedin={setLinkedin}
-                    setTwitter={setTwitter}
-                  />
-                );
-              case 4:
-                return (
-                  <Confirm
-                    handleDelete={handleDelete}
-                    title={title}
-                    about={about}
-                    skills={skillsArray}
-                    twitter={twitter}
-                    linkedin={linkedin}
-                    github={github}
-                  />
-                );
-              default:
-                break;
-            }
-          })()}
+          <div className="boxref w-full" ref={boxRef}>
+            {(() => {
+              switch (step) {
+                case 1:
+                  return (
+                    <Info
+                      onAbout={onAbout}
+                      onTitle={onTitle}
+                      title={title}
+                      about={about}
+                    />
+                  );
+                case 2:
+                  return (
+                    <Skills
+                      handleDelete={handleDelete}
+                      handleChange={handleChange}
+                      handleKeyPress={handleKeyPress}
+                      skillsArray={skillsArray}
+                      text={text}
+                    />
+                  );
+                case 3:
+                  return (
+                    <Social
+                      github={github}
+                      linkedin={linkedin}
+                      twitter={twitter}
+                      setGithub={setGithub}
+                      setLinkedin={setLinkedin}
+                      setTwitter={setTwitter}
+                    />
+                  );
+                case 4:
+                  return (
+                    <Confirm
+                      handleDelete={handleDelete}
+                      title={title}
+                      about={about}
+                      skills={skillsArray}
+                      twitter={twitter}
+                      linkedin={linkedin}
+                      github={github}
+                    />
+                  );
+                default:
+                  break;
+              }
+            })()}
+          </div>
           <div className="flex w-full mt-5">
             {step > 1 && (
               <Button
